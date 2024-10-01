@@ -1,0 +1,10 @@
+name: InterviewAPI
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - conda-forge::fastapi
+  - conda-forge::uvicorn
+  - pip
+  - pip:
+    - elevenlabs
