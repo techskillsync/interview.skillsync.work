@@ -1,9 +1,10 @@
+import os
 from typing import Iterator
 from elevenlabs.client import ElevenLabs
 from elevenlabs import play
 from io import BytesIO
 
-client = ElevenLabs(api_key="sk_acfadd44aa7740ac1a954674e3080cc34d367b6f1e8d623e")
+client = ElevenLabs(api_key=os.getenv('ELEVEN_LABS_API_KEY'))
 
 
 def GetAudio(question: str) -> BytesIO:
