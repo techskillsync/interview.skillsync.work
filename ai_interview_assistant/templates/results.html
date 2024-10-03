@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interview Results</title>
+</head>
+<body>
+    <h1>Interview Evaluation (Recruiter View)</h1>
+    {% for question, response, evaluation, sentiment in result_data %}
+        <div>
+            <h3>Question:</h3>
+            <p>{{ question }}</p>
+            <h3>Candidate's Response:</h3>
+            <p>{{ response }}</p>
+            <h3>Evaluation:</h3>
+            <p>{{ evaluation }}</p>
+            <h3>Sentiment Analysis:</h3>
+            <p>{{ sentiment }}</p>
+        </div>
+        <hr>
+    {% endfor %}
+</body>
+</html>

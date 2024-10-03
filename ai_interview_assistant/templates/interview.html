@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interview</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>AI Interview Assistant</h1>
+    <div id="interview-container">
+        <div id="avatar-container">
+            <!-- Virtual Avatar Placeholder -->
+            <canvas id="avatar-canvas"></canvas>
+        </div>
+        <div id="controls">
+            <button id="start-interview">Start Interview</button>
+        </div>
+    </div>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
