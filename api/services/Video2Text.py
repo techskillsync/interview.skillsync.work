@@ -1,3 +1,8 @@
+'''
+Converts Video to Text from video buffer
+Call process_video_bytes and pass video buffer in arg
+'''
+
 import torch
 import torchaudio
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
@@ -77,6 +82,29 @@ def video_to_audio_in_memory(video_data: bytes):
 
 
 def process_video_bytes(video_data: bytes):
+    """
+    Processes a video file provided as bytes and extracts the transcribed text from its audio.
+
+    This function converts the video file into an audio waveform using FFmpeg, prepares the audio
+    by resampling and converting it to mono if necessary, and then transcribes the speech in the
+    audio using a Wav2Vec2 model.
+
+    Args:
+        video_data (bytes): The input video data in bytes format (e.g., MP4 file).
+
+    Returns:
+        str: The transcribed text extracted from the video's audio.
+
+    Raises:
+        ValueError: If no audio is extracted from the video, or if the audio contains no data.
+        ffmpeg.Error: If there is an error during audio extraction via FFmpeg.
+
+    Example:
+        with open("example.mp4", "rb") as f:
+            video_bytes = f.read()
+        transcription = process_video_bytes(video_bytes)
+        print(transcription)  # Output: "Transcribed speech from the video's audio"
+    """
     logger.info(device)
     audio_buffer = video_to_audio_in_memory(video_data)
     logger.info("check!!!")
