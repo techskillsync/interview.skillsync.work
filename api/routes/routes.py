@@ -1,9 +1,13 @@
 import os
-from fastapi import APIRouter, Body
+from fastapi import APIRouter, Body, File, UploadFile
 from pydantic import BaseModel
 from fastapi.responses import Response, StreamingResponse, JSONResponse
+import logging
 
 from services.GetAudio import GetAudio
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
@@ -45,3 +49,6 @@ async def api_get_audio_dummy(request: api_get_audio_request):
 		print(f" 💥 Error in /api/get-audio-dummy e {e}")
 		return JSONResponse(content={"error":"Internal server error"}, status_code=500)
 
+
+
+      
