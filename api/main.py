@@ -1,3 +1,7 @@
+import os
+# Set working directory to this file
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 from dotenv import load_dotenv
 load_dotenv()
 import uvicorn
