@@ -81,7 +81,7 @@ def video_to_audio_in_memory(video_data: bytes):
     return audio_buffer
 
 
-def process_video_bytes(video_data: bytes):
+def process_video_bytes(video_data: bytes) -> str:
     """
     Processes a video file provided as bytes and extracts the transcribed text from its audio.
 
