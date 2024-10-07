@@ -20,7 +20,6 @@ async def api_get_audio(request: api_get_audio_request):
 	Returns the question read aloud in the form of a BytesIO file.
 	"""
 	try:
-		raise Exception("Use dummy api, we runnin out of tokens!")
 		audio = GetAudio(request.question)
 
 		return StreamingResponse(audio, media_type="audio/mpeg")
