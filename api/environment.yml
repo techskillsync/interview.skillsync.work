@@ -5,7 +5,11 @@ channels:
 dependencies:
   - conda-forge::fastapi
   - conda-forge::uvicorn
+  - conda-forge::transformers
+  - pytorch::pytorch
+  - pytorch::torchaudio
   - pip
   - pip:
     - elevenlabs
     - python-dotenv
+    - ffmpeg
