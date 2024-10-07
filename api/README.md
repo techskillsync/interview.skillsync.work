@@ -1,9 +1,14 @@
-## TO RUN
+## SkillSync Interviewer API
 
- - Create conda env with environment.yml
- - Install ffmpeg
+Project notes:  
+ - `main.py` and `RunTests.py` set the working directory to their directory  
+ - calling RunTests uses up some ElevenLabs tokens  
 
-You will need a dotenv with:
+Quickstart:  
+ - Create and activate conda environment with `environment.yml`  
+ - Install ffmpeg on your system so the ElevenLabs python package can run  
+ - Create a `.env` in `api/.env` with the following:
 ~~~
 ELEVEN_LABS_API_KEY=<api key here>
 ~~~
+ - Run `python api/main.py` or `python api/RunTests.py`
