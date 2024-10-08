@@ -1,6 +1,7 @@
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 function Interviewing() {
 
+	const [questionText, setQuestionText] = useState<string>("...");
 	const prompt = "Tell me about a conceptual problem you solved in a recent project. How did you solve it? What approaches did you take?"
 
 	async function askQuestion(question:string) {
@@ -27,6 +28,7 @@ function Interviewing() {
 				return
 			}
 
+			setQuestionText(question)
 			audioElement.src = audioUrl
 			audioElement.controls = false
 			audioElement.load()
@@ -44,8 +46,8 @@ function Interviewing() {
 	}, [])
 
 	return (
-		<div className="w-[50%]">
-			<h2>{prompt}</h2>
+		<div className="w-[50%] bg-sky-200">
+			<h2>{questionText}</h2>
 			<audio id="audio-player"/>
 		</div>
 	)

@@ -37,7 +37,7 @@ async def api_get_audio_dummy(request: api_get_audio_request):
 	"""
 	Returns a saved version of a question being read aloud.
 	"""
-	DUMMY_AUDIO_PATH = "api/assets/audio_sample.mp3"
+	DUMMY_AUDIO_PATH = "assets/audio_sample.mp3"
 	try:
 		import time
 		time.sleep(4)

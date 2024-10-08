@@ -1,12 +1,28 @@
-import { Link } from 'react-router-dom'
-import { FaPlay } from "react-icons/fa";
+import { Link, useLocation } from 'react-router-dom'
+import { useMicAccess } from "../../components/microphone/MicAccessContext";
 
 function Root() {
-    return (
+	const location = useLocation();
+	const { hasMicAccess } = useMicAccess()
+
+	return (
 		<div className="flex flex-col justify-center items-center">
-			<h1>You will be interviewing with <b className="text-[#1D7547]">Callum</b>,<br/>
-			    click the play button to begin. </h1>
-			<Link to="interviewing"><FaPlay size={36} color='#1D7547' className="m-8" /></Link>
+			{hasMicAccess ?
+				<div>
+					<h1>
+						We detected your microphone! Make some noise to make sure its working
+					</h1>
+					<Link 
+						to={{ pathname: "/setup-interview", search: location.search }}
+						className="w-full my-4 flex justify-center items-center">
+						<h1 className="block p-4 rounded-lg bg-[#1d754835] text-[#1d7547]">Its working</h1>
+					</Link>
+				</div>
+				:
+				<h1>
+					Welcome, before we begin make sure we can detect your microphone
+				</h1>
+			}
 		</div>
 	)
 }

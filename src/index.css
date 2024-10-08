@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+#root > * {
+	background-color: rgb(186 230 253);
+}
+
 html,
 body,
 #root {
