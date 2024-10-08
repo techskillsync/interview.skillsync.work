@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { useMicAccess } from "../../components/microphone/MicAccessContext";
+import { useMicAccess } from "../../components/MicAccessContext"
 
 function Root() {
 	const location = useLocation();
