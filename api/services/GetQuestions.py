@@ -7,10 +7,10 @@ def get_resume(uuid:str) -> None:
 
 def get_questions_from_resume(resume:None) -> List[str]:
 	return [
-			"Introduce yourself",
+			"Hi im Rachel, your interviewer! We will start with an introduction, then I will ask a little about what you’ve been up to, then a question about how you collaborate with teammates, and finally a technical question",
 			"Tell me about the microservice you deployed at SkillSync. From what I understand microservices are meant to handle one specific task, hiding the complexity with a simple REST API. Is that correct? If so how did you ensure your microservice was simple to use while performing complicated tasks under the hood?",
 			"At UBC Agrobot what did you do when your vision for the website differed from a teammate?",
-			"I see on your resume you made a Chess Engine, tell me about an improvement you made to it. What did you change that was not working like you wanted. How did you make it work how you wanted?",
+			"I see on your resume you made a Chess Engine, tell me about an improvement you made to it. How did you identify the area that needed improvement. How did you measure your success in improving the project?",
 	]
 
 def get_question_audio_tuples(questions:list[str]) -> List[Tuple[str, BytesIO]]:
