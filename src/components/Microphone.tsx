@@ -30,11 +30,11 @@ function Microphone() {
 	const { hasMicAccess } = useMicAccess()
 
 	return(
-		<div className="bg-sky-200 p-4 fixed bottom-24 left-1/2 transform -translate-x-1/2">
+		<div className="bg-sky-200 p-4 fixed bottom-16 left-1/2 transform -translate-x-1/2">
 			{hasMicAccess ?
 				<div>
 					<button className="p-4 m-4 border">
-						Stop recording and send to backend
+						i am a microphone
 					</button>
 				</div>
 				:
