@@ -1,5 +1,5 @@
 import unittest, io, os
-from services.GetAudio import GetAudio
+from api.utils.GetAudio import GetAudio
 
 class TestGetAudio(unittest.TestCase):
 
