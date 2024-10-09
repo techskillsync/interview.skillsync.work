@@ -44,7 +44,6 @@ function Interviewing() {
 		}
 
 		audio_element.src = question.audioURL
-		audio_element.controls = false
 		audio_element.load()
 		// React's double loads will cause this to error every time.
 		// I catch the error and do nothing so the console isn't spammed
@@ -62,6 +61,7 @@ function Interviewing() {
 			console.warn ("Could not find audio element to give audio to!")
 			return
 		}
+		audio_element.addEventListener('pause', () => {audio_element.play})
 		audio_element.addEventListener('ended', play_next_question)
 
 		return () => {
@@ -70,9 +70,9 @@ function Interviewing() {
 	})
 
 	return (
-		<div className="w-[50%] bg-sky-200">
+		<div className="w-[50%]">
 			<h2>{currentQuestionText}</h2>
-			<audio id="audio-player" />
+			<audio id="audio-player" controls={false} />
 		</div>
 	)
 }
