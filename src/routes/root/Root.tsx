@@ -3,11 +3,11 @@ import { useMicAccess } from "../../components/MicAccessContext"
 
 function Root() {
 	const location = useLocation();
-	const { hasMicAccess } = useMicAccess()
+	const { has_mic_access } = useMicAccess()
 
 	return (
 		<div className="flex flex-col justify-center items-center">
-			{hasMicAccess ?
+			{has_mic_access ?
 				<div>
 					<h1>
 						We detected your microphone! Make some noise to make sure its working

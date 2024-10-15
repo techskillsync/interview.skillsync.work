@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
 interface MicAccessContextType {
-	hasMicAccess: boolean;
+	has_mic_access: boolean;
 }
 
 const MicAccessContext = createContext<MicAccessContextType | undefined>(undefined)
@@ -16,15 +16,15 @@ function useMicAccess(): MicAccessContextType {
 
 interface MicAccessProviderProps { children: React.ReactNode }
 function MicAccessProvider({ children }: MicAccessProviderProps) {
-	const [hasMicAccess, setHasMicAccess] = useState<boolean>(false)
+	const [has_mic_access, set_has_mic_access] = useState<boolean>(false)
 
 	useEffect(() => {
 		const checkMicAccess = async () => {
 			try {
 				await navigator.mediaDevices.getUserMedia({ audio: true });
-				setHasMicAccess(true);
+				set_has_mic_access(true);
 			} catch (error) {
-				setHasMicAccess(false);
+				set_has_mic_access(false);
 			}
 		};
 
@@ -32,7 +32,7 @@ function MicAccessProvider({ children }: MicAccessProviderProps) {
 	}, []);
 
 	return (
-		<MicAccessContext.Provider value={{ hasMicAccess }}>
+		<MicAccessContext.Provider value={{ has_mic_access }}>
 			{children}
 		</MicAccessContext.Provider>
 	);

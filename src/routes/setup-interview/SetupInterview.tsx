@@ -18,7 +18,7 @@ function SetupInterview() {
 
 	useEffect(() => {
 		if (!questions) { return }
-		navigate({ pathname: "/preinterview", search: location.search })
+		navigate({ pathname: "/pre-interview", search: location.search })
 	}, [questions])
 
 	useEffect(() => {
