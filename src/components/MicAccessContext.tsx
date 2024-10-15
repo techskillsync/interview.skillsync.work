@@ -24,6 +24,7 @@ function MicAccessProvider({ children }: MicAccessProviderProps) {
 				await navigator.mediaDevices.getUserMedia({ audio: true });
 				set_has_mic_access(true);
 			} catch (error) {
+				console.log('error accessing mic' + error)
 				set_has_mic_access(false);
 			}
 		};

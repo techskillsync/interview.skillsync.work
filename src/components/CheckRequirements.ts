@@ -62,7 +62,6 @@ function mic_check(pathname: string, has_mic_access: boolean, navigate: Navigate
 function questions_check(pathname: string, questions_context: QuestionsContext, navigate: NavigateFunction) {
 	if (!questions_checked_routes.includes(pathname)) { return true }
 	if (!questions_context.questions) {
-		console.log("questions: " + questions_context.questions)
 		navigate({pathname: "/error/no-questions", search: location.search + "&error_msg=Did not receive questions from the backend"})
 		return false
 	}

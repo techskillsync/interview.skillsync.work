@@ -1,16 +1,12 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, act } from '@testing-library/react'
 import App from '../App'
 import '@testing-library/jest-dom'
 
-// Mock for getUserMedia (for microphone access)
-beforeEach(() => {
-	Object.defineProperty(navigator, 'mediaDevices', {
-		writable: true,
-		value: {
-			getUserMedia: jest.fn(),
-		},
-	});
-});
+test('Check Requirments - root page success', async () => {
+	window.history.pushState({}, 'Test page', '/?uuid=123')
+	render(<App />)
+	expect(window.location.pathname).toEqual('/')
+})
 
 test('Check Requirements - uuid failure, should redirect and display useful error message', () => {
 	const uuid_checked_routes: Array<string> = ["/", "/setup-interview", "/pre-interview", "/interviewing"]
@@ -27,7 +23,6 @@ test('Check Requirements - uuid failure, should redirect and display useful erro
 })
 
 test('Check Requirements - mic check failure, should redirect and display useful error message', () => {
-	(navigator.mediaDevices.getUserMedia as jest.Mock).mockRejectedValueOnce(new Error('Microphone access denied'))
 
 	const mic_checked_routes: Array<string> = ["/setup-interview", "/pre-interview", "/interviewing"]
 
@@ -43,7 +38,6 @@ test('Check Requirements - mic check failure, should redirect and display useful
 })
 
 test('Check Requirements - mic check invalid, should not redirect on irrelevant routes', () => {
-	(navigator.mediaDevices.getUserMedia as jest.Mock).mockRejectedValueOnce(new Error('Microphone access denied'))
 
 	const non_mic_checked_routes: Array<string> = ["/"]
 
@@ -57,5 +51,4 @@ test('Check Requirements - mic check invalid, should not redirect on irrelevant 
 })
 
 test('Check Requirements - questions check failure, should redirect user and display useful error message', () => {
-	(navigator.mediaDevices.getUserMedia as jest.Mock).mockRejectedValueOnce(new Error('Microphone access denied'))
 })
